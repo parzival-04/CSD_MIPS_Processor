@@ -206,3 +206,5 @@
 - Simulates clock, reset, pipeline control signals
 - Tests sequential fetch, jumps, and pipeline flushes
 - Provides thorough verification for instruction fetch stage
+
+![WhatsApp Image 2025-09-06 at 11 57 11_170a1633](https://github.com/user-attachments/assets/9ae58edc-eea1-4297-8ba6-d2b0a9165bfb)
