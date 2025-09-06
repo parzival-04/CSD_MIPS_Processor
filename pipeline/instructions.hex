@@ -1,0 +1,9 @@
+012A4020  // add $t0, $t1, $t2
+018B5822  // sub $t3, $t4, $t5
+01F87024  // and $t6, $t7, $t8
+8E300004  // lw $s0, 4($s1)
+AE720008  // sw $s2, 8($s3)
+11090003  // beq $t0, $t1, +3 instructions
+08000008  // j 0x00000020 (word address)
+00000000  // nop (padding)
+00000000  // nop (padding)
