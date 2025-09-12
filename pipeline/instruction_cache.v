@@ -16,7 +16,7 @@ module instruction_cache #(
 
     // Initialize cache (for simulation/demo)
     initial begin
-        $readmemh("C:/Users/jyoth/Downloads/CSD_MIPS_Processor-main/CSD_MIPS_Processor-main/pipeline/instructions.hex", cache_mem);
+        $readmemh("C:/Users/jyoth/Downloads/CSD_MIPS_Processor-main/pipeline/instructions.hex", cache_mem);
     end
 
     always @(posedge clk) begin
