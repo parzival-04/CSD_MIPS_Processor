@@ -208,3 +208,52 @@
 - Provides thorough verification for instruction fetch stage
 
 ![WhatsApp Image 2025-09-06 at 11 57 11_170a1633](https://github.com/user-attachments/assets/9ae58edc-eea1-4297-8ba6-d2b0a9165bfb)
+---
+## Week 4 Contributions
+
+**Raghuram - Top-Level Integration and Verification**
+
+1.  **MIPS Processor Top-Level (`mips_processor_top.v`)**
+    * Integrates all five pipeline stages (IF, ID, EX, MEM, WB) into a single cohesive module.
+    * Connects the core datapath with the control, forwarding, and hazard detection units.
+    * Manages top-level logic for PC selection (branch/jump) and pipeline flushing.
+
+2.  **Top-Level Testbench (`tb_mips_processor_top.v`)**
+    * Implements a comprehensive testbench for the fully integrated 5-stage pipeline.
+    * Generates clock and reset signals to drive the simulation.
+    * Monitors PC, key registers (`$t0-$t7`), and memory to verify correct program execution.
+---
+
+**Aarya - Execution Stage and Control Logic**
+
+1.  **Arithmetic Logic Unit (ALU) (`alu.v`)**
+    * Implements core arithmetic (`add`, `sub`), logical (`and`, `or`, `xor`), and comparison (`slt`) operations.
+    * Supports various instruction formats by handling register and immediate operands.
+
+2.  **ALU Control Unit (`alu_control.v`)**
+    * Decodes `ALUOp` and `funct` fields to produce the specific 4-bit control code for the ALU.
+    * Manages ALU operation selection for R-type, I-type, and branch instructions.
+
+3.  **Hazard Detection Unit (`hazard_detection_unit.v`)**
+    * Implements the logic to detect load-use data hazards between pipeline stages.
+    * Asserts a `stall` signal to freeze the pipeline and prevent incorrect data usage.
+
+4.  **ID/EX Pipeline Register (`id_ex_register.v`)**
+    * Latches all data and control signals moving from the Decode to the Execute stage.
+    * Ensures proper synchronization of register data, immediate values, and control signals.
+---
+
+**Jyothiraditya (Aditya) - Memory System and Datapath Forwarding**
+
+1.  **Forwarding Unit (`forwarding_unit.v`)**
+    * Resolves data hazards by creating forwarding paths from the MEM and WB stages to the EX stage.
+    * Implements priority logic to ensure the most recent data is always forwarded.
+
+2.  **Memory System (`data_memory.v`, `instruction_memory.v`)**
+    * Defines the data memory module to support `lw` and `sw` operations.
+    * Implements a read-only instruction memory to fetch program code.
+
+3.  **Pipeline Registers (`ex_mem_register.v`, `mem_wb_register.v`)**
+    * Manages the flow of data between the final pipeline stages (EX/MEM/WB).
+    * Carries ALU results, memory data, and destination register information.
+---
